@@ -1,4 +1,3 @@
-// @ts-check
 
 import React, { useEffect, useState } from "react";
 import ArticleCard from "../components/home/article-card";
@@ -9,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     callToApi(setArticlesData);
-  }, []); // [] Indica que sólo se va a realizar cuando se monte el componente!!w
+  }, []); // [] Indica que sólo se va a realizar cuando se monte el componente!!
 
   return (
     <section className="container mx-auto">
@@ -40,6 +39,7 @@ const callToApi = async (setArticlesData) => {
 
   setArticlesData(
     data.map((article) => ({
+      slug: article.slug,
       imgSrc: "http://localhost:1337" + article.image?.formats.thumbnail.url,
       title: article.title,
       description: article.description,

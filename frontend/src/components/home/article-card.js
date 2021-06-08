@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ArticleCard = ({ imgSrc, title, description, date }) => (
-  <div className="w-3/12 p-4">
-    <div className="bg-white rounded-md overflow-hidden shadow-md">
+const ArticleCard = ({ slug, imgSrc, title, description, date }) => (
+  <Link to={`/article/${slug}`} className="w-3/12 p-4 bg-white rounded-md overflow-hidden shadow-md">
       <div
         className="flex justify-center items-center h-40 w-full overflow-hidden bg-cover"
         style={{ backgroundImage: `url(${imgSrc})` }}
@@ -16,8 +16,8 @@ const ArticleCard = ({ imgSrc, title, description, date }) => (
           <span className="text-xs">{date}</span>
         </div>
       </div>
-    </div>
-  </div>
+   
+  </Link>
 );
 
 export default ArticleCard;

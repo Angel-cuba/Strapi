@@ -26,7 +26,7 @@ const Home = () => {
             else return articleData.title.toLowerCase().includes(search);
           })
           .map((articleData) => (
-            <ArticleCard {...articleData} />
+            <ArticleCard key={articleData.slug} {...articleData} />
           ))}
       </div>
     </section>
@@ -34,7 +34,7 @@ const Home = () => {
 };
 
 const callToApi = async (setArticlesData) => {
-  const response = await fetch("http://localhost:1337/articles");
+  const response = await fetch(`http://localhost:1337/articles`);
   const data = await response.json();
 
   setArticlesData(
